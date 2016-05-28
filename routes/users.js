@@ -2,6 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var User = require('../models/index').User;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

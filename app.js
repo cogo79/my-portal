@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -41,6 +42,9 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
+
+app.use(session({secret: 'Welcome to The Club!', resave:false, saveUninitialized:false}));
+require('./authentication/passport')(app);
 
 app.use('/', routes);
 app.use('/users', users);
