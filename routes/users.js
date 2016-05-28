@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/testwithnoauthentication', function(req, res) {
+	console.log("get testwithnoauthentication route");
   	res.status(200).json('You did it! Nice job ;D (get testWithNoAuthentication)');
 });
 
